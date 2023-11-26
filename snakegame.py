@@ -11,8 +11,8 @@ win = pygame.display.set_mode((width, height))
 pygame.display.set_caption("Snake Game")
 
 # Define colors
-green = (0, 255, 0)  # Background color
-black = (0, 0, 0)    # Snake color
+green = (0, 128, 0)  # Change to green for background color
+black = (0, 0, 0)    # Change to black for snake color
 red = (255, 0, 0)    # Food color
 
 # Snake properties
@@ -89,9 +89,10 @@ while True:
     else:
         # Game over screen
         font = pygame.font.Font(None, 36)
-        text = font.render("Game Over - Press SPACE to Restart", True, (255, 255, 255))
-        text_rect = text.get_rect(center=(width // 2, height // 2))
-        win.blit(text, text_rect)
+        game_over_text = font.render("Game Over", True, (255, 255, 255))
+        restart_text = font.render("Press SPACE to Restart", True, (255, 255, 255))
+        win.blit(game_over_text, (width // 2 - game_over_text.get_width() // 2, height // 2 - 20))
+        win.blit(restart_text, (width // 2 - restart_text.get_width() // 2, height // 2 + 20))
 
     pygame.display.flip()
 
