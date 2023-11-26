@@ -12,8 +12,8 @@ pygame.display.set_caption("Snake Game")
 
 # Define colors
 black = (0, 0, 0)
-white = (255, 255, 255)
-red = (255, 0, 0)
+green = (0, 255, 0)  # Snake color
+red = (255, 0, 0)    # Food color
 
 # Snake properties
 snake_size = 20
@@ -84,12 +84,13 @@ while True:
         pygame.draw.rect(win, red, (*food, snake_size, snake_size))
 
         for segment in snake:
-            pygame.draw.rect(win, white, (*segment, snake_size, snake_size))
+            pygame.draw.rect(win, green, (*segment, snake_size, snake_size))
+            pygame.draw.rect(win, (0, 100, 0), (*segment, snake_size, snake_size), 3)  # Add border
 
     else:
         # Game over screen
         font = pygame.font.Font(None, 36)
-        text = font.render("Game Over - Press SPACE to Restart", True, white)
+        text = font.render("Game Over - Press SPACE to Restart", True, (255, 255, 255))
         text_rect = text.get_rect(center=(width // 2, height // 2))
         win.blit(text, text_rect)
 
